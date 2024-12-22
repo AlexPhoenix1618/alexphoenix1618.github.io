@@ -1,0 +1,180 @@
+# If your site is in 'https', then make sure your base url isn't written using 'http' otherwise your sitemap would
+# contain http (as opposeed to https) URLs. This would affect Google indexing of your URLs.
+baseURL: "https://Cooper0098.github.io" # 主站的 URL
+title: AlexPhoenix Blog # 站点标题
+copyright: "[©2024 Cooper's Blog](https://github.com/Cooper0098/Cooper.github.io)" # 网站的版权声明，通常显示在页脚
+theme: hugo-PaperMod # 主题
+languageCode: zh-cn # 语言
+
+enableInlineShortcodes: true # shortcode，类似于模板变量，可以在写 markdown 的时候便捷地插入，官方文档中有一个视频讲的很通俗
+hasCJKLanguage: true # 是否有 CJK 的字符
+enableRobotsTXT: true # 允许生成 robots.txt
+buildDrafts: false # 构建时是否包括草稿
+buildFuture: false # 构建未来发布的内容
+buildExpired: false # 构建过期的内容
+enableEmoji: true # 允许 emoji
+pygmentsUseClasses: true
+defaultContentLanguage: zh # 顶部首先展示的语言界面
+defaultContentLanguageInSubdir: false # 是否要在地址栏加上默认的语言代码
+
+
+languages:
+  zh:
+    languageName: "中文" # 展示的语言名
+    weight: 3 # 权重
+    taxonomies: # 分类系统
+      category: categories
+      tag: tags
+    # https://gohugo.io/content-management/menus/#define-in-site-configuration
+    menus:
+      main:
+        - name: "首页"
+          pageRef: /
+          weight: 1 # 控制在页面上展示的前后顺序
+        - name: "归档"
+          pageRef: archives/
+          weight: 5
+        - name: "分类"
+          pageRef: categories/
+          weight: 10
+        - name: "标签"
+          pageRef: tags/
+          weight: 15
+        - name: "搜索"
+          pageRef: search/
+          weight: 20
+        - name: "关于"
+          pageRef: about/
+          weight: 25
+
+    # custom params for each language should be under [langcode].parms - hugo v0.120.0
+    # custom params for each language should be under [langcode].parms - hugo v0.120.0
+    params:
+      profileMode:
+        enabled: true
+        title: AlexPhoenix
+        imageUrl: "https://raw.githubusercontent.com/googlefonts/noto-emoji/master/svg/emoji_u1f9d1_1f3fb_200d_1f4bb.svg"
+        imageTitle: ProfileMode image
+        # imageWidth: 120
+        # imageHeight: 120
+        subtitle: "啃文档好烦啊"
+        buttons:
+          - name: "我的博客"
+            url: posts/
+          - name: Profile Mode
+            url: https://github.com/adityatelange/hugo-PaperMod/wiki/Features#profile-mode
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+
+params:
+  env: production # to enable google analytics, opengraph, twitter-cards and schema.
+  description: "Theme PaperMod - https://github.com/adityatelange/hugo-PaperMod"
+  author: AlexPhoenix
+  # author: ["Me", "You"] # multiple authors
+
+  defaultTheme: dark
+  # disableThemeToggle: true
+  ShowShareButtons: true
+  ShowReadingTime: true
+  # disableSpecial1stPost: true
+  displayFullLangName: true
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  ShowRssButtonInSectionTermList: true
+  ShowAllPagesInArchive: true
+  ShowPageNums: true
+  ShowToc: true
+  # comments: false
+  images: ["images/papermod-cover.png"]
+
+  socialIcons:
+    - name: github
+      title: View Source on Github
+      url: "https://github.com/adityatelange/hugo-PaperMod"
+    - name: Discord
+      title: Join discord community
+      url: "https://discord.gg/ahpmTvhVmp"
+    - name: X
+      title: Share PaperMod on X/Twitter
+      url: "https://x.com/intent/tweet/?text=Checkout%20Hugo%20PaperMod%20%E2%9C%A8%0AA%20fast,%20clean,%20responsive%20Hugo%20theme.&url=https://github.com/adityatelange/hugo-PaperMod&hashtags=Hugo,PaperMod"
+    - name: KoFi
+      title: Buy me a Ko-Fi :)
+      url: "https://ko-fi.com/adityatelange"
+
+  editPost:
+    URL: "https://github.com/adityatelange/hugo-PaperMod/tree/exampleSite/content"
+    Text: "Suggest Changes" # edit text
+    appendFilePath: true # to append file path to Edit link
+
+  # label:
+  # iconSVG: '<svg xmlns="http://www.w3.org/2000/svg" height="25" viewBox="0 -960 960 960" fill="currentColor"><path d="M320-240h320v-80H320v80Zm0-160h320v-80H320v80ZM240-80q-33 0-56.5-23.5T160-160v-640q0-33 23.5-56.5T240-880h320l240 240v480q0 33-23.5 56.5T720-80H240Zm280-520v-200H240v640h480v-440H520ZM240-800v200-200 640-640Z"/></svg>'
+  # text: "Home"
+  # icon: icon.png
+  # iconHeight: 35
+
+  # analytics:
+  #     google:
+  #         SiteVerificationTag: "XYZabc"
+
+  assets:
+    disableHLJS: true
+  #     favicon: "<link / abs url>"
+  #     favicon16x16: "<link / abs url>"
+  #     favicon32x32: "<link / abs url>"
+  #     apple_touch_icon: "<link / abs url>"
+  #     safari_pinned_tab: "<link / abs url>"
+
+  # cover:
+  #     hidden: true # hide everywhere but not in structured data
+  #     hiddenInList: true # hide on list pages and home
+  #     hiddenInSingle: true # hide on single page
+
+  # fuseOpts:
+  #     isCaseSensitive: false
+  #     shouldSort: true
+  #     location: 0
+  #     distance: 1000
+  #     threshold: 0.4
+  #     minMatchCharLength: 0
+  #     keys: ["title", "permalink", "summary", "content"]
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+  highlight:
+    noClasses: false
+    # anchorLineNos: true
+    # codeFences: true
+    # guessSyntax: true
+    # lineNos: true
+    # style: monokai
+
+# privacy:
+#   vimeo:
+#     disabled: false
+#     simple: true
+
+#   twitter:
+#     disabled: false
+#     enableDNT: true
+#     simple: true
+
+#   instagram:
+#     disabled: false
+#     simple: true
+
+#   youtube:
+#     disabled: false
+#     privacyEnhanced: true
+
+services:
+  instagram:
+    disableInlineCSS: true
+  twitter:
+    disableInlineCSS: true
